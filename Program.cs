@@ -24,7 +24,6 @@ public class Program
             {
                 Console.WriteLine($"    {p++}. {program.Name}");
             }
-            Console.WriteLine("\n");
             int input = GetNumber(Console.ReadLine());
             if(input == -1 || input > programs.Count)
             {
