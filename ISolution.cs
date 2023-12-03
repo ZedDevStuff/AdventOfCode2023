@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public interface ISolution
 {
     public string Name { get; }
@@ -11,12 +13,20 @@ public interface ISolution
             if(input == "1")
             {
                 correct = true;
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 Part1();
+                sw.Stop();
+                Console.WriteLine($"Time taken: {sw.Elapsed}");
             }
             if(input == "2")
             {
                 correct = true;
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 Part2();
+                sw.Stop();
+                Console.WriteLine($"Time taken: {sw.Elapsed}");
             }
         }
     }

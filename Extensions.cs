@@ -17,4 +17,69 @@ public static class Extensions
         }
         return int.Parse(result);
     }
+
+    // This was a char[][] but I wanted to make it more generic for absolutely no reason
+    public static bool HasNeighbor<T>(this T[][] map, int x, int y, params T[] neighbors)
+    {
+        int xStart = x == 0 ? 0 : x - 1;
+        int xEnd = x == map[0].Length - 1 ? x : x + 1;
+        int yStart = y == 0 ? 0 : y - 1;
+        int yEnd = y == map.Length - 1 ? y : y + 1;
+
+        for (int i = xStart; i <= xEnd; i++)
+        {
+            for (int j = yStart; j <= yEnd; j++)
+            {
+                if (i == x && j == y) continue;
+                foreach (T neighbor in neighbors)
+                {
+                    if (map[j][i].Equals(neighbor))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    // Useful for day 3 part 2 but i literally can't think of any other use case lol
+    public static bool HasNeighborsOut<T>(this T[][] map, int x, int y, out (int x,int y)[] neighboorsCoords, params T[] neighbors)
+    {
+        int xStart = x == 0 ? 0 : x - 1;
+        int xEnd = x == map[0].Length - 1 ? x : x + 1;
+        int yStart = y == 0 ? 0 : y - 1;
+        int yEnd = y == map.Length - 1 ? y : y + 1;
+
+        List<(int x, int y)> NeighboorsCoords = new List<(int x, int y)>() {};
+
+        for (int i = xStart; i <= xEnd; i++)
+        {
+            for (int j = yStart; j <= yEnd; j++)
+            {
+                if (i == x && j == y) continue;
+                foreach (T neighbor in neighbors)
+                {
+                    if (map[j][i].Equals(neighbor))
+                    {
+                        NeighboorsCoords.Add((i,j));
+                    }
+                }
+            }
+        }
+        neighboorsCoords = NeighboorsCoords.ToArray();
+        if (NeighboorsCoords.Count > 0)
+        {
+            return true;
+        }
+        else return false;
+    }
+    public static void InitializeJaggedArray(this Array[] array, int x, int y)
+    {
+        array = new Array[y][];
+        for (int i = 0; i < y; i++)
+        {
+            array[i] = new Array[x];
+        }
+    }
 }
