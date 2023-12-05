@@ -57,14 +57,6 @@ public class Day3 : ISolution
         {
             map[i] = input[i].ToCharArray();
         }
-        /*foreach (char[] row in map)
-        {
-            foreach (char c in row)
-            {
-                Console.Write(c);
-            }
-            Console.WriteLine();
-        }*/
         int total = 0;
         int lineNum = 0;
         Dictionary<(int x, int y), List<int>> coords = new();
