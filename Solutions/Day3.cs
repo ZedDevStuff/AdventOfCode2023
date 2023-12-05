@@ -1,4 +1,6 @@
+using Extensions;
 using System.Text.RegularExpressions;
+
 public class Day3 : ISolution
 {
     public string Name => "Day 3";

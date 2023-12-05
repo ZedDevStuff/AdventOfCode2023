@@ -1,3 +1,4 @@
+using Extensions;
 using System.Text.RegularExpressions;
 
 public class Day4 : ISolution

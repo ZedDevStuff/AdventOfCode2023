@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 
+namespace Extensions;
 public static class Extensions
 {
 
@@ -110,36 +111,54 @@ public static class Extensions
             list.Add(value);
         }
     }
-    public class IntRange : IEnumerable<int>
+}
+public class LongRange
+{
+    private readonly long _start;
+    private readonly long _end;
+    public long Start => _start;
+    public long End => _end;
+    public long Length => (_end - _start) < 0 ? (_end - _start) * -1 : (_end - _start);
+
+    public LongRange(long start, long end)
     {
-        private readonly int _start;
-        private readonly int _end;
-        public int Start => _start;
-        public int End => _end;
-        public int Length => (_end - _start) < 0 ? (_end - _start) * -1 : (_end - _start);
-
-        public IntRange(int start, int end)
-        {
-            _start = start;
-            _end = end;
-            for (int i = start; i <= end; i++)
-            {
-                this.Append(i);
-            }
-        }
-
-        public IEnumerator<int> GetEnumerator()
-        {
-            for (int i = _start; i <= _end; i++)
-            {
-                yield return i;
-            }
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
+        _start = start;
+        _end = end;
     }
+    public bool IsWithin(long value)
+    {
+        return value >= _start && value <= _end;
+    }
+}
+public class IntRange : IEnumerable<int>
+{
+    private readonly int _start;
+    private readonly int _end;
+    public int Start => _start;
+    public int End => _end;
+    public int Length => (_end - _start) < 0 ? (_end - _start) * -1 : (_end - _start);
+
+    public IntRange(int start, int end)
+    {
+        _start = start;
+        _end = end;
+        for (int i = start; i <= end; i++)
+        {
+            this.Append(i);
+        }
+    }
+
+    public IEnumerator<int> GetEnumerator()
+    {
+        for (int i = _start; i <= _end; i++)
+        {
+            yield return i;
+        }
+    }
+
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
 }

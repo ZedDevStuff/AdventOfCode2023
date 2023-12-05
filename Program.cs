@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 
 public class Program
 {
     // This is horrid
     public static readonly string DataPath = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName,"Data");
     private static bool Running = true;
+
     public static void Main(string[] args)
     {
         List<ISolution> programs = new();
@@ -24,6 +26,7 @@ public class Program
             {
                 Console.WriteLine($"    {p++}. {program.Name}");
             }
+            Console.Write("\n> ");
             int input = GetNumber(Console.ReadLine());
             if(input == -1 || input > programs.Count)
             {
