@@ -4,7 +4,7 @@ using Utility;
 
 public class Day5 : ISolution
 {
-    public string Name => "Day 5";
+    public string Name => "Day 5: If You Give A Seed A Fertilizer";
 
     List<Converter> seedToSoilMap = new();
     List<Converter> soilToFertilizerMap = new();
@@ -138,8 +138,6 @@ public class Day5 : ISolution
         List<LongRange> seedRanges = new();
         foreach(var seed in Quick.Range(0,seeds1.Count-1)) seedRanges.Add(new LongRange(seeds1[seed],seeds1[seed]+seeds2[seed]));
         seedRanges = seedRanges.OrderBy(x => x.Start).ToList();
-        seeds1 = null;
-        seeds2 = null;
         ConcurrentBag<(long seed, long location)> results = new();
         // Just learned about this, life saver
         Parallel.ForEach(seedRanges, seedRange =>

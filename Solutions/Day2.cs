@@ -7,7 +7,7 @@ using Utility;
 // Not working yet
 public class Day2 : ISolution
 {
-    public string Name => "Day 2";
+    public string Name => "Day 2: Cube Conundrum";
 
     public void Part1()
     {
@@ -70,7 +70,6 @@ public class Day2 : ISolution
     public void Part2()
     {
         string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "2/input.txt"));
-        int maxRed = 12, maxGreen = 13, maxBlue = 14;
         int total = 0;
         foreach(string line in input)
         {

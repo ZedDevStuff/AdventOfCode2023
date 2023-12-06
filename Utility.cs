@@ -6,6 +6,14 @@ namespace Utility
         {
             return new IntRange(start, end);
         }
+        public static UIntRange Range(uint start, uint end)
+        {
+            return new UIntRange(start, end);
+        }
+        public static LongRange Range(long start, long end)
+        {
+            return new LongRange(start, end);
+        }
     }
     public static class ConsoleEx
     {
@@ -41,7 +49,7 @@ namespace Utility
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
-    public class LongRange
+    public class LongRange : IEnumerable<long>
     {
         private readonly long _start;
         private readonly long _end;
@@ -53,6 +61,10 @@ namespace Utility
         {
             _start = start;
             _end = end;
+            for (long i = start; i <= end; i++)
+            {
+                this.Append(i);
+            }
         }
         public bool Overlaps(LongRange range)
         {
@@ -61,6 +73,18 @@ namespace Utility
         public bool IsWithin(long value)
         {
             return value >= _start && value <= _end;
+        }
+        public IEnumerator<long> GetEnumerator()
+        {
+            for (long i = _start; i <= _end; i++)
+            {
+                yield return i;
+            }
+        }
+        
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
     public class IntRange : IEnumerable<int>
@@ -84,6 +108,38 @@ namespace Utility
         public IEnumerator<int> GetEnumerator()
         {
             for (int i = _start; i <= _end; i++)
+            {
+                yield return i;
+            }
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+    }
+    public class UIntRange : IEnumerable<uint>
+    {
+        private readonly uint _start;
+        private readonly uint _end;
+        public uint Start => _start;
+        public uint End => _end;
+        public long Length => (_end - _start) < 0 ? (_end - _start) * -1 : (_end - _start);
+
+        public UIntRange(uint start, uint end)
+        {
+            _start = start;
+            _end = end;
+            for (uint i = start; i <= end; i++)
+            {
+                this.Append(i);
+            }
+        }
+
+        public IEnumerator<uint> GetEnumerator()
+        {
+            for (uint i = _start; i <= _end; i++)
             {
                 yield return i;
             }

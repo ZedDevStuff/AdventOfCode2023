@@ -4,7 +4,7 @@ using Utility;
 
 public class Day1 : ISolution
 {
-    public string Name => "Day 1";
+    public string Name => "Day 1: Trebuchet?!";
 
     public void Part1()
     {
