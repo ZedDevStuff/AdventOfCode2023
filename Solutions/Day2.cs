@@ -1,6 +1,7 @@
 using Extensions;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using Utility;
 
 
 // Not working yet
@@ -37,11 +38,9 @@ public class Day2 : ISolution
                         blue += m.Value.ParseInt();
                     }
                 }
-                Console.WriteLine($"{red} {green} {blue}");
                 if(red > maxRed || green > maxGreen || blue > maxBlue)
                 {
                     possible = false;
-                    Console.WriteLine($"Game {gameID} is impossible.");
                     red = 0;
                     green = 0;
                     blue = 0;
@@ -55,19 +54,17 @@ public class Day2 : ISolution
                 }
                 
             }
-            //Console.WriteLine($"Game {gameID}: red:{red} green:{green} blue:{blue}");
             if(possible)
             {
-                Console.WriteLine($"Game {gameID} is possible.");
+                ConsoleEx.WriteLineColor(("Game ",ConsoleColor.White),($"{gameID}",ConsoleColor.Green),(" is ",ConsoleColor.White), ("possible",ConsoleColor.Green));
                 total += gameID;
             }
             else
             {
-                Console.WriteLine($"Game {gameID} is impossible.");
+                ConsoleEx.WriteLineColor(("Game ",ConsoleColor.White),($"{gameID}",ConsoleColor.Green),(" is ",ConsoleColor.White), ("impossible",ConsoleColor.Red));
             }
         }
-        Console.WriteLine($"Total: {total}\n");
-
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
 
     public void Part2()
@@ -109,6 +106,6 @@ public class Day2 : ISolution
             Console.WriteLine($"Game {gameID}: power:{power}");
             total += power;
         }
-        Console.WriteLine($"Total power: {total}\n");
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
 }

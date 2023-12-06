@@ -1,4 +1,5 @@
 using Extensions;
+using Utility;
 using System.Text.RegularExpressions;
 
 public class Day3 : ISolution
@@ -47,7 +48,7 @@ public class Day3 : ISolution
             }
             lineNum++;
         }
-        Console.WriteLine($"Total: {total}");
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
 
     public void Part2()
@@ -96,6 +97,6 @@ public class Day3 : ISolution
                 total += gears[0] * gears[1];
             }
         }
-        Console.WriteLine($"Total: {total}");
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
 }

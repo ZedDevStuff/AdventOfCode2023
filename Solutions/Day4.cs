@@ -1,5 +1,6 @@
 using Extensions;
 using System.Text.RegularExpressions;
+using Utility;
 
 public class Day4 : ISolution
 {
@@ -39,10 +40,10 @@ public class Day4 : ISolution
                 
             }
             total += finalScore;
-            Console.WriteLine($"Card {current} is worth {finalScore} points");
+            ConsoleEx.WriteLineColor(("Card ",ConsoleColor.White),($"{current}",ConsoleColor.Green),(" is worth ",ConsoleColor.White),($"{finalScore}",ConsoleColor.Green),(" points",ConsoleColor.White));
             current++;
         }
-        Console.WriteLine($"Total: {total}");
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
 
     public void Part2()
@@ -67,7 +68,7 @@ public class Day4 : ISolution
         List<int> times = new();
         times.Fill(1,ourNumbers.Count);
         Compute(ref total, cards,0,times,1);
-        Console.WriteLine($"Total: {total}");
+        ConsoleEx.WriteLineColor(("\nTotal: ",ConsoleColor.White),($"{total}\n",ConsoleColor.Green));
     }
     public void Compute(ref int total, List<Card> cards, int current, List<int> times, int next)
     {

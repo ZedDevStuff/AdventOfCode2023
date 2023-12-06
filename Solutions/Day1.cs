@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using Utility;
 
 public class Day1 : ISolution
 {
@@ -16,7 +17,7 @@ public class Day1 : ISolution
             if (potNum.Length == 1) total += int.Parse(potNum + potNum);
             if (potNum.Length > 1) total += int.Parse(potNum[0].ToString() + potNum[^1].ToString());
         }
-        Console.WriteLine($"Total: {total}\n");
+        ConsoleEx.WriteLineColor(("\nTotal: ", ConsoleColor.White), ($"{total}\n", ConsoleColor.Green));
     }
     public void Part2()
     {
@@ -28,7 +29,7 @@ public class Day1 : ISolution
             Console.WriteLine($"{line} = {num}");
             total += num;
         }
-        Console.WriteLine($"Total: {total}\n");
+        ConsoleEx.WriteLineColor(("\nTotal: ", ConsoleColor.White), ($"{total}\n", ConsoleColor.Green));
     }
     public int CheckNumbers(string str)
     {
