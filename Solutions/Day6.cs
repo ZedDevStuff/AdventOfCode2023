@@ -60,6 +60,6 @@ public class Day6 : ISolution
                 }
             }
         }
-        ConsoleEx.WriteLineColor(("\nResult: ",ConsoleColor.White), ($"{results.Count}\n",ConsoleColor.Green), (" ways to win the race",ConsoleColor.White));
+        ConsoleEx.WriteLineColor(("\nResult: ",ConsoleColor.White), ($"{results.Count}",ConsoleColor.Green), (" ways to win the race\n",ConsoleColor.White));
     }
 }
