@@ -9,7 +9,7 @@ public class Day3 : ISolution
     private static char[] symbols = new char[] {'*', '@', '+', '-', '%', '=', '/', '&', '$', '#'};
     public void Part1()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "3/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "3", "input.txt"));
         char[][] map = new char[input.Length][];
         map.InitializeJaggedArray(input[0].Length, input.Length);
         for (int i = 0; i < input.Length; i++)
@@ -53,7 +53,7 @@ public class Day3 : ISolution
 
     public void Part2()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "3/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "3", "input.txt"));
         char[][] map = new char[input.Length][];
         map.InitializeJaggedArray(input[0].Length, input.Length);
         for (int i = 0; i < input.Length; i++)

@@ -8,7 +8,7 @@ public class Day1 : ISolution
 
     public void Part1()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "1/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "1", "input.txt"));
         int total = 0;
         foreach (string line in input)
         {
@@ -21,7 +21,7 @@ public class Day1 : ISolution
     }
     public void Part2()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "1/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "1", "input.txt"));
         int total = 0;
         foreach (string line in input)
         {

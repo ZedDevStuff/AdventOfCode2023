@@ -15,8 +15,8 @@ public class Day5 : ISolution
     List<Converter> humidityToLocationMap = new();
     public void Part1()
     {
-        string input = File.ReadAllText(Path.Combine(Program.DataPath, "5/input.txt"));
-        string firstLine = File.ReadLines(Path.Combine(Program.DataPath, "5/input.txt")).First();
+        string input = File.ReadAllText(Path.Combine(Program.DataPath, "5", "input.txt"));
+        string firstLine = File.ReadLines(Path.Combine(Program.DataPath, "5", "input.txt")).First();
         List<long> seeds = new();
         Parse(input,firstLine,seeds,seedToSoilMap,soilToFertilizerMap,fertilizerToWaterMap,waterToLightMap,lightToTemperatureMap,temperatureToHumidityMap,humidityToLocationMap);
         List<(long seed, long location)> locations = new();
@@ -124,8 +124,8 @@ public class Day5 : ISolution
     // It didn't even finish after 2 hours before i threaded it
     public void Part2()
     {
-        string input = File.ReadAllText(Path.Combine(Program.DataPath, "5/input.txt"));
-        string firstLine = File.ReadLines(Path.Combine(Program.DataPath, "5/input.txt")).First();
+        string input = File.ReadAllText(Path.Combine(Program.DataPath, "5", "input.txt"));
+        string firstLine = File.ReadLines(Path.Combine(Program.DataPath, "5", "input.txt")).First();
         List<long> seeds = new();
         Parse(input,firstLine,seeds,seedToSoilMap,soilToFertilizerMap,fertilizerToWaterMap,waterToLightMap,lightToTemperatureMap,temperatureToHumidityMap,humidityToLocationMap);
         List<long> seeds1 = new();

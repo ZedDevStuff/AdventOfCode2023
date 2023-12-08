@@ -8,7 +8,7 @@ public class Day4 : ISolution
 
     public void Part1()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "4/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "4", "input.txt"));
         int current = 1;
         int total = 0;
         foreach (string line in input)
@@ -48,7 +48,7 @@ public class Day4 : ISolution
 
     public void Part2()
     {
-        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "4/input.txt"));
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "4", "input.txt"));
         int total = 0;
         Dictionary<int,List<int>> winning = new();
         Dictionary<int,List<int>> ourNumbers = new();

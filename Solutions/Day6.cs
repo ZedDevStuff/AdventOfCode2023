@@ -7,7 +7,7 @@ public class Day6 : ISolution
 
     public void Part1()
     {
-        string[] input = File.ReadAllLines("Data/6/input.txt");
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "5", "input.txt"));
         List<int> times = new(), distances = new();
         input[0].Replace("Time:","").Trim();
         times = Regex.Matches(input[0], @"\d+").Select(m => int.Parse(m.Value)).ToList();
@@ -41,7 +41,7 @@ public class Day6 : ISolution
 
     public void Part2()
     {
-        string[] input = File.ReadAllLines("Data/6/input.txt");
+        string[] input = File.ReadAllLines(Path.Combine(Program.DataPath, "5", "input.txt"));
         Regex r = new Regex(@" +");
         long allowedTime = 0, bestDistance = 0;
         input[0].Replace("Time:","").Trim();
@@ -60,6 +60,6 @@ public class Day6 : ISolution
                 }
             }
         }
-        ConsoleEx.WriteLineColor(("\nResult: ",ConsoleColor.White), ($"{results.Count}\n",ConsoleColor.Green), (" ways to win the race",ConsoleColor.White));
+        ConsoleEx.WriteLineColor(("\nResult: ",ConsoleColor.White), ($"{results.Count}",ConsoleColor.Green), (" ways to win the race\n",ConsoleColor.White));
     }
 }
